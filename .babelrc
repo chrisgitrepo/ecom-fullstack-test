@@ -5,11 +5,13 @@
     ],
     "presets": [
         "es2015",
-        "react"
+        "react",
+        "stage-0"
     ],
     "plugins": [
         "transform-regenerator",
         "transform-object-rest-spread",
+        "transform-decorators-legacy",
         "transform-class-properties"
     ]
 }

@@ -9,7 +9,6 @@ import nodeJsx from 'node-jsx';
 import { match, RouterContext } from 'react-router';
 import { renderToString } from 'react-dom/server';
 
-import api from '../api';
 import routes from '../routes';
 
 const ONE_YEAR_IN_MILLIS = 31557600000;
@@ -64,25 +63,8 @@ app.engine('hbs', handlebars({
 }));
 app.set('views', path.resolve(__dirname, '../views/layout/'));
 
-/**
- * Bind the APIs
- * */
-api(app);
-
-/**
- * Handle status codes and direct all other paths to react-router.
- * */
-app.get('*', (req, res) => {
-    match({ routes: routes, location: req.url }, (error, redirect, props) => {
-        if (error) {
-            res.status(500).send(error.message);
-        } else if (redirect) {
-            res.redirect(302, redirect.pathname + redirect.search);
-        } else if (props) {
-            res.status(200);
-            res.render('index', { reactOutput: renderToString(<RouterContext {...props} />) });
-        }
-    });
+app.get('*', function(req, res) {
+    res.render('index');
 });
 
 app.listen(APP_PORT_NUM, () => console.log(`Server running at http://localhost:${APP_PORT_NUM}`));

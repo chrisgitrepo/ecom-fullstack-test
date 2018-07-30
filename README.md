@@ -1,3 +1,7 @@
+# Test Complete
+
+I decided to use GraphQL to manage the api connection. To run the app, you must also have the GraphQL server running. You can do this with the command 'yarn db'
+
 # Photobox Full Stack JS test
 
 This test is designed for potential full stack developers to demonstrate their coding skills. It's intended to be done in less than 90 minutes, but don't hold back in showing your skills. We're mainly interested in seeing how you approach this problem and how far you'll get.

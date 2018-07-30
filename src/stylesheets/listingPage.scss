@@ -1,4 +1,95 @@
-body {
-    background-color: #FFFFFF;
-    color: #888888;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productlist {
+    display: inline-grid;
+    font-family: Helvetica, Arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+@media only screen and (max-width: 479px)  {
+    .productlist {
+        grid-template-columns: 1fr;
+    }
+}
+@media only screen and (min-width: 480px) and (max-width: 768px)  {
+    .productlist {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 769px)  {
+    .productlist {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.listitem {
+    padding: 5px;
+}
+
+.productcard {
+    display: flex;
+    flex-flow: column wrap;
+    flex-basis: auto;
+    border: solid 2px #dfe0ec;
+    width: 315px;
+    color: #3a4154;
+
+	.image {
+		width: 100%;
+	}
+
+	.label {
+		background: #f4452d;
+		color: #fff;
+		font-weight: bolder;
+		padding: 10px 10px;
+		position: relative;
+		width: 100px;
+    }
+    
+    .content {
+        margin-left: 40px;
+        margin-right: 50px;
+
+        &-title {
+            font-size: 25px;
+        }
+    
+        &-description {
+            font-weight: lighter;
+            font-size: 15px;
+            margin-bottom: 50px;
+        }
+    
+        &-price {
+            display: flex;
+            flex-flow: row wrap;
+            margin-bottom: 30px;
+
+            .cost {
+                font-weight: bolder;
+                margin-left: 15px;
+                margin-top: 4px;
+                font-size: 30px;
+            }
+        }
+    
+        &-cta {
+            border: 12px solid #00ff1c;
+            bottom: 30px;;
+            color: #3a4154;
+            display: inline-block;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 30px;
+        }
+    }
 }
